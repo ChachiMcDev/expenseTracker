@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`expect expense list item to be rendered 1`] = `
+<div>
+  <[object Object]
+    to="/edit/0"
+  >
+    <h3>
+      yup
+    </h3>
+  </[object Object]>
+  <p>
+    $1.95
+    ---
+    Dec 31 1969
+  </p>
+</div>
+`;
