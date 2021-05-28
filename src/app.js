@@ -8,6 +8,7 @@ import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
 
 //remove before pushing final release to prod
+//seriously remove it
 import './firebase/firebase';
 
 
