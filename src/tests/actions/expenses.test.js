@@ -1,4 +1,4 @@
-import { addExpense, removeExpense, editExpense, startAddExpense } from '../../actions/expenses';
+import { addExpense, removeExpense, editExpense, startAddExpense, setExpenses } from '../../actions/expenses';
 import expenseData from '../fixtures/expensesData';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -7,6 +7,15 @@ import database from '../../firebase/firebase';
  // add your middlewares like `redux-thunk`
 const createMockStore = configureStore([thunk]);
 
+
+beforeEach((done) => {
+    const expensesData = {};
+    expenseData.forEach(({id, description, note, amount, createdAt}) => {
+        expensesData[id] = {description, note, amount, createdAt};
+    })
+
+    database.ref('expenses').set(expensesData).then(() => done());
+});
 
 
 //REMOVE_EXPENSE TEST
@@ -124,36 +133,12 @@ test('should add expense with defaults to database and store', (done) => {
 
 
 });
-       // const ref =  database.ref(`expenses/${actions[0].expense.id}`);
-      //  const ref =  database.ref(createPath);
-        //ref.on('value', (snapshot) => {
-        //    console.log(snapshot.val());
-        //}, (errorObject) => {
-        //    console.log('read failure:', errorObject.code);
-        //})
 
-        //return ref.once('value')
-       // ref.once('value', (snapshot) => {
-       //     console.log(snapshot.val());
-       // }, (errorObject) => {
-       //     console.log('read failure:', errorObject.code);
-       // })
+test('should setup set expenses action object with data', () => {
+    const action = setExpenses(expenseData);
 
-
-//test('should setup add expense object with default values', ()=>{
-//    const addExpObjDefaultMatch = {
-//        type: 'ADD_EXPENSE',
-//        expense: {
-//            id: expect.any(String),
-//            description: '',
-//            note: '',
-//            amount: 0,
-//            createdAt: 0
-//        }
-//    }
-//    
-//    const action = addExpense();
-//
-//    expect(action).toEqual(addExpObjDefaultMatch)
-//});
-//
+    expect(action).toEqual({
+        type: 'SET_EXPENSES',
+        expenses: expenseData
+    });
+});
