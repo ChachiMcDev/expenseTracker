@@ -73,6 +73,7 @@ export const startSetExpenses = () => {
             .then((snapshot) =>{
                 const expenses = [];
                 snapshot.forEach((childsnapshot) => {
+                    console.log(...childsnapshot.val())
                     expenses.push({
                         id: childsnapshot.key,
                         ...childsnapshot.val()
