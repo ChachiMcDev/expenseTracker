@@ -5,7 +5,7 @@ exports[`should render LoginPage 1`] = `
   <button
     onClick={[Function]}
   >
-    Click to log in:
+    Login
   </button>
 </div>
 `;

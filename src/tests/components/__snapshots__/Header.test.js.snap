@@ -13,7 +13,7 @@ exports[`should render Header correctly 1`] = `
       }
     }
     exact={true}
-    to="/"
+    to="/dashboard"
   >
     Dashboard
   </[object Object]>
@@ -41,5 +41,10 @@ exports[`should render Header correctly 1`] = `
   >
     Need Help?
   </[object Object]>
+  <button
+    onClick={[Function]}
+  >
+    Logout
+  </button>
 </header>
 `;

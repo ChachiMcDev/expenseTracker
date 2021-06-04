@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
-import AppRouter from './routers/AppRouter';
 import { startSetExpenses } from './actions/expenses';
-
 import 'normalize.css/normalize.css';
 import './styles/styles.scss'; 
 import 'react-dates/lib/css/_datepicker.css';
@@ -24,17 +23,28 @@ const jsx = (
     </Provider>   
 );
 
+let hasRendered = false;
+const rederApp = () => {
+    if(!hasRendered){
+        ReactDOM.render(jsx, document.getElementById('app'));
+        hasRendered = true;
+    }
+}
 
 ReactDOM.render(<p>loading...</p>, document.getElementById('app'));
 
-store.dispatch(startSetExpenses()).then(() => {
-    ReactDOM.render(jsx, document.getElementById('app'));
-});
+
 
 firebase.auth().onAuthStateChanged((user) => {
     if(user){
-        console.log('logged in')
+        store.dispatch(startSetExpenses()).then(() => {
+            rederApp();
+            if(history.location.pathname === '/'){
+                history.push('/dashboard')
+            }
+        });
     }else{  
-        console.log('logged out');
+        rederApp();
+        history.push('/');
     }
 });
