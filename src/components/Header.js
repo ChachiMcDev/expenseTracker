@@ -6,8 +6,9 @@ const Header = () => (
         <h1>Expensify It!</h1>
 
 
-        <NavLink  
-            exact to="/" 
+
+        <NavLink 
+            exact to="/dashboard" 
             activeClassName="is-active"
             activeStyle={{
                 color: "blue"
