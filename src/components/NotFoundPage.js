@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link} from 'react-router-dom';
 
-const NotFoundPage = ()=> (
+const HeaderLoginPage = ()=> (
     <div>
-        error... error... error... <Link to="/">Go Home</Link>
+        <Link to="/">Need Login Help?</Link>
     </div>
 )
 
-export default NotFoundPage;
+export default HeaderLoginPage;

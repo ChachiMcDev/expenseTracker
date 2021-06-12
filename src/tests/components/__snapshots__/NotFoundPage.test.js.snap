@@ -2,11 +2,10 @@
 
 exports[`expect not found page to be rendered 1`] = `
 <div>
-  error... error... error... 
   <[object Object]
     to="/"
   >
-    Go Home
+    Need Login Help?
   </[object Object]>
 </div>
 `;
