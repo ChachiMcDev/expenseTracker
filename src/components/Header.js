@@ -1,25 +1,25 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { startLogOut } from '../actions/auth';
 
 export const Header = ({ startLogOut } ) => (
-    <header>
-        <h1>Expensify It!</h1>
-
-
-
-        <NavLink 
+    <header className="header">
+        <div className="content-container">
+        <div className="header__content">
+        
+        <NavLink className="header__title"
             exact to="/dashboard" 
             activeClassName="is-active"
             activeStyle={{
                 color: "blue"
             }}
         >
-            Dashboard
+            <h1>Expense Dashboard</h1>
         </NavLink>
 
-        <NavLink 
+        <NavLink className="header__title"
             exact to="/create" 
             activeClassName="is-active"
             activeStyle={{
@@ -29,7 +29,7 @@ export const Header = ({ startLogOut } ) => (
             Create Expense
         </NavLink>
 
-        <NavLink 
+        <NavLink className="header__title"
             exact to="/help" 
             activeClassName="is-active"
             activeStyle={{
@@ -38,11 +38,31 @@ export const Header = ({ startLogOut } ) => (
             >
             Need Help?
         </NavLink>
-        <button onClick={startLogOut}>Logout</button>
+        <button className="button button--link" onClick={startLogOut}>Logout</button>
+
+        </div>
+
+
+        </div>
+
 
     </header>
 )
 
+
+//export const Header = ({ startLogout }) => (
+//    <header className="header">
+//      <div className="content-container">
+//        <div className="header__content">
+//          <Link className="header__title" to="/dashboard">
+//            <h1>Expensify</h1>
+//          </Link>
+//          <button className="button button--link" onClick={startLogout}>Logout</button>
+//        </div>
+//      </div>
+//    </header>
+//  );
+//
 const mapDispatchToProps = (dispatch) => ({
     startLogOut: () => dispatch(startLogOut())
 });
