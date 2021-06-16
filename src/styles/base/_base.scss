@@ -1,5 +1,9 @@
 //using rem for sizing conventions
 
+* {
+  box-sizing: border-box;
+}
+
 html {
     font-size: 62.5%;
   }

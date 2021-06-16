@@ -13,7 +13,7 @@ export const Header = ({ startLogOut } ) => (
             exact to="/dashboard" 
             activeClassName="is-active"
             activeStyle={{
-                color: "blue"
+                color: "green"
             }}
         >
             <h1>Expense Dashboard</h1>
@@ -23,7 +23,7 @@ export const Header = ({ startLogOut } ) => (
             exact to="/create" 
             activeClassName="is-active"
             activeStyle={{
-                color: "blue"
+                color: "green"
             }}
         >
             Create Expense
