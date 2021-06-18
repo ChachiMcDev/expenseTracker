@@ -25,7 +25,7 @@ export const LogInPage = ({ startLogin, startLoginFacebook }) => (
         <div className="box-layout__box">
             <h1 className="box-layout__title">Expense Tracker App</h1>
             <p>Do you know where your expenses are right now?</p>
-            <button className="button" onClick={startLogin}>Login with Google</button>
+            <button className="button button--glogin" onClick={startLogin}>Login with Google</button>
             <button className="button" onClick={startLoginFacebook}>Login with Facebook</button>
         </div>      
     </div>
