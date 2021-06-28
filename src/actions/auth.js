@@ -16,6 +16,7 @@ export const startLogin = () => {
 };
 
 export const startLoginFacebook = () =>{
+   
     return () =>{
         return firebase.auth().signInWithPopup(facebookAuthProvider);
     }
